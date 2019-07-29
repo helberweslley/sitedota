@@ -67,6 +67,7 @@ class RegisterController extends Controller
             'username' => $data['username'],
             'avatar' => $data['avatar'],
             'steamid' => $data['steamid'],
+            'steamid32' => $data['steamid32'],
         ]);
     }
 }

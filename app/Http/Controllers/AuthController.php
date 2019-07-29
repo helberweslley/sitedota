@@ -42,11 +42,7 @@ class AuthController extends Controller
         return $this->steam->redirect();
     }
 
-    /**
-     * Get user info and log in
-     *
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
-     */
+
     public function handle()
     {
         if ($this->steam->validate()) {
@@ -71,7 +67,8 @@ class AuthController extends Controller
      */
     protected function findOrNewUser($info)
     {
-        $user = User::where('steamid', $info->steamID64)->first();
+        $result = substr("76561198049410378", 3) - 61197960265728;
+         $user = User::where('steamid', $info->steamID64)->first();
 
         if (!is_null($user)) {
             return $user;
@@ -80,7 +77,8 @@ class AuthController extends Controller
         return User::create([
             'username' => $info->personaname,
             'avatar' => $info->avatarfull,
-            'steamid' => $info->steamID64
+            'steamid' => $info->steamID64,
+            'steamid32'=> $result
         ]);
     }
 }
