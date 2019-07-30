@@ -15,7 +15,11 @@ class CreateTimesTable extends Migration
     {
         Schema::create('times', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('nome');
+            $table->unsignedBigInteger('game_id');
             $table->timestamps();
+
+            $table->foreign('game_id')->references('id')->on('games');
         });
     }
 
