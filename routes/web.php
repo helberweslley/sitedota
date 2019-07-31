@@ -14,6 +14,10 @@
 Route::get('/', function () {
     return view('index');
 });
+Route::get('/profile', function () {
+    return view('profile');
+});
+
 Route::get('auth/steam', 'AuthController@redirectToSteam')->name('auth.steam');
 Route::get('auth/steam/handle', 'AuthController@handle')->name('auth.steam.handle');
 

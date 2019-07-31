@@ -69,7 +69,7 @@ class AuthController extends Controller
     {
         $result = substr("76561198049410378", 3) - 61197960265728;
          $user = User::where('steamid', $info->steamID64)->first();
-
+         //dd($info);
         if (!is_null($user)) {
             return $user;
         }
